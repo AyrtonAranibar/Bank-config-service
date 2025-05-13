@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: movement-service
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/movement-database
+
+  webclient:
+    base-url-product: http://localhost:8082/api/v1/product
+    base-url-client: http://localhost:8081/api/v1/client
