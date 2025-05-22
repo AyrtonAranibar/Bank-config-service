@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: report-service
+  kafka:
+    bootstrap-servers: localhost:9092
+
+  webclient:
+    base-url-client: http://localhost:8081/api/v1/client
+    base-url-product: http://localhost:8082/api/v1/product
+    base-url-movement: http://localhost:8083/api/v1/movement
