@@ -1,11 +1,30 @@
 spring:
   application:
     name: movement-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: movement-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*' # Confía en todas las clases del proyecto
+            value:
+              default:
+                type: com.bank.ayrton.movement_service.dto.BootcoinTransactionEvent
+    listener:
+      ack-mode: record
 
   data:
     mongodb:
       uri: mongodb://localhost:27017/movement-database
-
   webclient:
     base-url-product: http://localhost:8082/api/v1/product
     base-url-client: http://localhost:8081/api/v1/client
+  redis:
+    host: localhost
+    port: 6379
